@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Простой блог на Go</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <!-- Заголовок страницы -->
+    <header class="header">
+        <h1>📝 Мой Блог</h1>
+        <p class="subtitle">Простое веб-приложение с бэкендом на Go</p>
+    </header>
+
+    <!-- Форма для создания нового поста -->
+    <section class="create-post-section">
+        <h2>Создать новый пост</h2>
+        <form id="createPostForm" class="post-form">
+            <div class="form-group">
+                <label for="postTitle">Заголовок:</label>
+                <input type="text" id="postTitle" name="title" required placeholder="Введите заголовок...">
+            </div>
+
+            <div class="form-group">
+                <label for="postAuthor">Автор:</label>
+                <input type="text" id="postAuthor" name="author" required placeholder="Ваше имя...">
+            </div>
+
+            <div class="form-group">
+                <label for="postContent">Содержание:</label>
+                <textarea id="postContent" name="content" required rows="5" placeholder="Напишите что-нибудь интересное..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Опубликовать</button>
+        </form>
+    </section>
+
+    <!-- Секция со списком постов -->
+    <section class="posts-section">
+        <h2>Все посты</h2>
+        <div id="postsContainer" class="posts-container">
+            <!-- Здесь будут отображаться посты, загруженные из API -->
+            <div class="loading">Загрузка постов...</div>
+        </div>
+    </section>
+</div>
+
+<!-- Модальное окно для редактирования поста -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Редактировать пост</h2>
+        <form id="editPostForm" class="post-form">
+            <input type="hidden" id="editPostId">
+
+            <div class="form-group">
+                <label for="editPostTitle">Заголовок:</label>
+                <input type="text" id="editPostTitle" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="editPostAuthor">Автор:</label>
+                <input type="text" id="editPostAuthor" name="author" required>
+            </div>
+
+            <div class="form-group">
+                <label for="editPostContent">Содержание:</label>
+                <textarea id="editPostContent" name="content" required rows="5"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+        </form>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
